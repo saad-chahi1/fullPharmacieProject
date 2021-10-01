@@ -18,6 +18,6 @@ public class Product {
     private String description;
     private String image;
     private double price;
-    /*@DBRef
-    private Category category;*/
+    @DBRef
+    private Categorie category;
 }
