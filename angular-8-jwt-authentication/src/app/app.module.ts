@@ -6,15 +6,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
-import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { BoardUserComponent } from './board-user/board-user.component';
-import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
-import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './Auth_Components/login/login.component';
+import { RegisterComponent } from './Auth_Components/register/register.component';
+import { HomeComponent } from './Auth_Components/home/home.component';
+import { BoardAdminComponent } from './Auth_Components/board-admin/board-admin.component';
+import { BoardModeratorComponent } from './Auth_Components/board-moderator/board-moderator.component';
+import { ProfileComponent } from './Auth_Components/profile/profile.component';
 
-import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { authInterceptorProviders } from './Auth_Components/_helpers/auth.interceptor';
+import { NavComponent } from './ProductComponent/nav/nav.component';
+import { CardComponent } from './ProductComponent/card/card.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,10 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     RegisterComponent,
     HomeComponent,
     BoardAdminComponent,
-    BoardUserComponent,
     BoardModeratorComponent,
-    ProfileComponent
+    ProfileComponent,
+    NavComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

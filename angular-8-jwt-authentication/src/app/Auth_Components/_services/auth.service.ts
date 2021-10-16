@@ -7,7 +7,8 @@ const AUTH_API = 'http://localhost:8080/api/auth/';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-
+var nowDate = new Date(); 
+let dateCreation = nowDate.getFullYear()+'-'+(nowDate.getMonth()+1)+'-'+nowDate.getDate();
 @Injectable({
   providedIn: 'root'
 })
@@ -26,7 +27,9 @@ export class AuthService {
     return this.http.post(AUTH_API + 'signup', {
       username: user.username,
       email: user.email,
-      password: user.password
+      password: user.password,
+      dateDeNaissance: user.birth,
+      dateDeCreation: dateCreation
     }, httpOptions);
   }
 }

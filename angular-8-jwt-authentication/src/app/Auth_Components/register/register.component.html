@@ -71,6 +71,21 @@
         </div>
       </div>
       <div class="form-group">
+        <label for="birth">Date de naissance</label>
+        <input
+          type="date"
+          class="form-control"
+          name="birth"
+          [(ngModel)]="form.birth"
+          required
+          birth
+          #birth="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && birth.invalid">
+          <div *ngIf="birth.errors.required">birthday is required</div>
+        </div>
+      </div>
+      <div class="form-group">
         <button class="btn btn-primary btn-block">Sign Up</button>
       </div>
 

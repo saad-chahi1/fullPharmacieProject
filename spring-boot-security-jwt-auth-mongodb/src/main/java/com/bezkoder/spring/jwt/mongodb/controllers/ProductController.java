@@ -1,5 +1,6 @@
 package com.bezkoder.spring.jwt.mongodb.controllers;
 
+import com.bezkoder.spring.jwt.mongodb.models.Categorie;
 import com.bezkoder.spring.jwt.mongodb.models.Product;
 import com.bezkoder.spring.jwt.mongodb.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1/")
