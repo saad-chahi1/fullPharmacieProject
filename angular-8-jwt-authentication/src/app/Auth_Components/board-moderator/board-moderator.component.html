@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="col-md-12">
+    <div class="card-header card-header-danger">
+        <h4 class="card-title">Dashboard</h4>
+        <p class="card-category">Form to add your product</p>
+    </div>
+    <div class="card card-container">
+      <form
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+      <div class="card-body">
+        <div class="row">
+          <label for="name" class="col-md-3">name</label>
+          <input type="text" 
+            class="form-control col-md-3"
+            name="name"
+            [(ngModel)]="form.name"
+            required
+            #name="ngModel"/>
+            <div class="alert-danger" *ngIf="f.submitted && name.invalid">
+                <div *ngIf="name.errors.required">Name is required</div>
+            </div>
+        
+        
+          <label for="sousName" class="col-md-3">Under name</label>
+          <input type="text" 
+            class="form-control col-md-3"
+            name="sousName"
+            [(ngModel)]="form.sousName"
+            required
+            sousName
+            #sousName="ngModel"/>
+            <div class="alert-danger" *ngIf="f.submitted && sousName.invalid">
+                <div *ngIf="sousName.errors.required">sousName is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <label for="password" class="col-md-3">description</label>
+          <input type="text" 
+            class="form-control col-md-3"
+            name="description"
+            [(ngModel)]="form.description"
+            required
+            description
+            #description="ngModel"/>
+            <div class="alert-danger" *ngIf="f.submitted && description.invalid">
+                <div *ngIf="description.errors.required">Description is required</div>
+            </div>
+
+          <label for="price" class="col-md-3">price</label>
+          <input
+            type="text"
+            class="form-control col-md-3"
+            name="price"
+            [(ngModel)]="form.price"
+            required
+            price
+            #price="ngModel"
+          />
+            <div class="alert-danger" *ngIf="f.submitted && price.invalid">
+                <div *ngIf="price.errors.required">price is required</div>
+            </div>
+        </div>
+        <div class="row">
+          <label for="password" class="col-md-3">Upload Images</label>
+          <input type="file" accept="image/*"
+            (change)="onSelectFile($event)"
+            class="form-control col-md-3"
+            name="image"
+            [(ngModel)]="form.image"
+            required
+            image
+            #image="ngModel"/>
+            <img [src]="imgURL" height="200" *ngIf="imgURL">
+            <div class="alert-danger" *ngIf="f.submitted && image.invalid">
+                <div *ngIf="image.errors.required">image is required</div>
+            </div>
+        </div>
+        <br>
+        <div class="row col-md-3">
+          <button class="btn btn-primary btn-block">Add Product</button>
+        </div>
+  
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Add your Product failed!<br />{{ errorMessage }}
+        </div>
+      </form>
+  
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Your Add Product is successful!
+      </div>
+    </div>
+  </div>
+</div>  

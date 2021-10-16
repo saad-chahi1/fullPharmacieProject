@@ -1,0 +1,20 @@
+<main>
+  <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+      <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+          
+          <div class="col" *ngFor="let p of products">
+              <div class="card h-100 shadow-sm"> <img src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png" class="card-img-top" alt="...">
+                  <div class="label-top shadow-sm">{{p.category}}</div>
+                  <div class="card-body">
+                      <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-success">{{p.price}}</span> <span class="float-end"><a href="#" class="small text-muted">Reviews</a></span> </div>
+                      <h5 class="card-title">{{p.name}}</h5>
+                      <h6>{{p.sousName}}</h6>
+                      <div class="text-center my-4"> <a href="#" class="btn btn-warning">Check offer</a> </div>
+                      <div class="clearfix mb-1"> <span class="float-start"><i class="far fa-question-circle"></i></span> <span class="float-end"><i class="fas fa-plus"></i></span> </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</main>

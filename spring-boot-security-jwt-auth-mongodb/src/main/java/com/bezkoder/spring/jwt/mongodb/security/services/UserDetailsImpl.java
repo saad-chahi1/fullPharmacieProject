@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.bezkoder.spring.jwt.mongodb.models.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.validation.constraints.NotBlank;
+
 public class UserDetailsImpl implements UserDetails {
 	private static final long serialVersionUID = 1L;
 
@@ -21,18 +23,24 @@ public class UserDetailsImpl implements UserDetails {
 
 	private String email;
 
+	private String dateDeNaissance;
+
+	private String dateDeCreation;
+
 	@JsonIgnore
 	private String password;
 
 	private Collection<? extends GrantedAuthority> authorities;
 
-	public UserDetailsImpl(String id, String username, String email, String password,
-			Collection<? extends GrantedAuthority> authorities) {
+	public UserDetailsImpl(String id, String username, String email, String password, String dateDeNaissance,
+			String dateDeCreation,Collection<? extends GrantedAuthority> authorities) {
 		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.authorities = authorities;
+		this.dateDeNaissance = dateDeNaissance;
+		this.dateDeCreation = dateDeCreation;
 	}
 
 	public static UserDetailsImpl build(User user) {
@@ -44,7 +52,9 @@ public class UserDetailsImpl implements UserDetails {
 				user.getId(), 
 				user.getUsername(), 
 				user.getEmail(),
-				user.getPassword(), 
+				user.getPassword(),
+				user.getDateDeNaissance(),
+				user.getDateDeCreation(),
 				authorities);
 	}
 
@@ -99,5 +109,13 @@ public class UserDetailsImpl implements UserDetails {
 			return false;
 		UserDetailsImpl user = (UserDetailsImpl) o;
 		return Objects.equals(id, user.id);
+	}
+
+	public String getDateDeNaissance() {
+		return dateDeNaissance;
+	}
+
+	public String getDateDeCreation() {
+		return dateDeCreation;
 	}
 }

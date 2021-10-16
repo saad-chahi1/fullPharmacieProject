@@ -1,0 +1,22 @@
+.navigation {
+    padding-top: 25px;
+}
+.navigation .box-title .logo {
+    margin-bottom: 0;
+    font-weight: 800;
+}
+.navigation .box-title .logo a {
+    color: #2f343f;
+}
+.navigation .box-title .logo a span {
+    color: #da0909;
+}
+.navigation .box-title .logo a:hover {
+    text-decoration: none;
+}
+.navigation .box-title .sub-title {
+    font-size: 13px;
+}
+.navigation .box-cart {
+    padding-top: 8px;
+}

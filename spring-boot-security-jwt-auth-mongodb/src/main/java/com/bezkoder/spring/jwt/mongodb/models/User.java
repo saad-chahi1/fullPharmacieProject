@@ -1,5 +1,6 @@
 package com.bezkoder.spring.jwt.mongodb.models;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,16 +30,24 @@ public class User {
   @Size(max = 120)
   private String password;
 
+  @NotBlank
+  private String dateDeNaissance;
+
+  @NotBlank
+  private String dateDeCreation;
+
   @DBRef
   private Set<Role> roles = new HashSet<>();
 
   public User() {
   }
 
-  public User(String username, String email, String password) {
+  public User(String username, String email, String password, String dateDeNaissance, String dateDeCreation) {
     this.username = username;
     this.email = email;
     this.password = password;
+    this.dateDeCreation = dateDeCreation;
+    this.dateDeNaissance = dateDeNaissance;
   }
 
   public String getId() {
@@ -79,5 +88,21 @@ public class User {
 
   public void setRoles(Set<Role> roles) {
     this.roles = roles;
+  }
+
+  public String getDateDeNaissance() {
+    return dateDeNaissance;
+  }
+
+  public void setDateDeNaissance(String dateDeNaissance) {
+    this.dateDeNaissance = dateDeNaissance;
+  }
+
+  public String getDateDeCreation() {
+    return dateDeCreation;
+  }
+
+  public void setDateDeCreation(String dateDeCreation) {
+    this.dateDeCreation = dateDeCreation;
   }
 }

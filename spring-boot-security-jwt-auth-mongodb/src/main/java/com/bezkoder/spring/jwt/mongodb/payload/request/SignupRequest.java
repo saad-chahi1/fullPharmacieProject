@@ -19,6 +19,12 @@ public class SignupRequest {
     @NotBlank
     @Size(min = 6, max = 40)
     private String password;
+
+    @NotBlank
+    private String dateDeNaissance;
+
+    @NotBlank
+    private String dateDeCreation;
   
     public String getUsername() {
         return username;
@@ -50,5 +56,21 @@ public class SignupRequest {
     
     public void setRole(Set<String> roles) {
       this.roles = roles;
+    }
+
+    public String getDateDeNaissance() {
+        return dateDeNaissance;
+    }
+
+    public void setDateDeNaissance(String dateDeNaissance) {
+        this.dateDeNaissance = dateDeNaissance;
+    }
+
+    public String getDateDeCreation() {
+        return dateDeCreation;
+    }
+
+    public void setDateDeCreation(String dateDeCreation) {
+        this.dateDeCreation = dateDeCreation;
     }
 }

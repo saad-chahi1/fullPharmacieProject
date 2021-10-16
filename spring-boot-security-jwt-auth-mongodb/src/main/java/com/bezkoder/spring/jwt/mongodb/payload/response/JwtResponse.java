@@ -1,5 +1,6 @@
 package com.bezkoder.spring.jwt.mongodb.payload.response;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 public class JwtResponse {
@@ -8,13 +9,17 @@ public class JwtResponse {
 	private String id;
 	private String username;
 	private String email;
+	private String dateDeNaissance;
+	private String dateDeCreation;
 	private List<String> roles;
 
-	public JwtResponse(String accessToken, String id, String username, String email, List<String> roles) {
+	public JwtResponse(String accessToken, String id, String username, String email, String dateDeNaissance, String dateDeCreation, List<String> roles) {
 		this.token = accessToken;
 		this.id = id;
 		this.username = username;
 		this.email = email;
+		this.dateDeCreation = dateDeCreation;
+		this.dateDeNaissance = dateDeNaissance;
 		this.roles = roles;
 	}
 
@@ -60,5 +65,21 @@ public class JwtResponse {
 
 	public List<String> getRoles() {
 		return roles;
+	}
+
+	public String getDateDeNaissance() {
+		return dateDeNaissance;
+	}
+
+	public void setDateDeNaissance(String dateDeNaissance) {
+		this.dateDeNaissance = dateDeNaissance;
+	}
+
+	public String getDateDeCreation() {
+		return dateDeCreation;
+	}
+
+	public void setDateDeCreation(String dateDeCreation) {
+		this.dateDeCreation = dateDeCreation;
 	}
 }
